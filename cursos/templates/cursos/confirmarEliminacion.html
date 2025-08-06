@@ -1,0 +1,85 @@
+{% extends "inicio/encabezado.html" %}
+{% block titulo %}Confirmar Eliminación | CursoDjango{% endblock %}
+
+{% block imagen %}
+{% load static %}
+<div class="text-center mb-4">
+  <img src="{% static 'inicio/images/home.png' %}" alt="Home" class="img-fluid" style="max-height: 120px;">
+</div>
+{% endblock %}
+
+{% block encabezado %}
+<div class="container text-center mb-5">
+  <h1 class="display-5 fw-bold text-danger">Confirmar Eliminación</h1>
+  <div class="divider mx-auto" style="
+      width: 80px;
+      height: 4px;
+      background: #dc3545;
+      margin: 1rem auto;
+      border-radius: 2px;
+  "></div>
+</div>
+{% endblock %}
+
+{% block contenido %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-lg-6">
+      <div class="card border-0 shadow-lg">
+        <div class="card-body p-5">
+          <div class="alert alert-danger border-0 shadow-sm" style="border-left: 4px solid #dc3545;">
+            <div class="d-flex align-items-center">
+              <div class="me-3">
+                <i class="fas fa-exclamation-triangle fa-2x text-danger"></i>
+              </div>
+              <div>
+                <h4 class="alert-heading h5 mb-2">Eliminando Comentario</h4>
+                <p class="mb-0">¿Estás seguro de que deseas <strong>eliminar permanentemente</strong> este comentario?</p>
+              </div>
+            </div>
+          </div>
+
+          <form method="POST" class="mt-4">
+            {% csrf_token %}
+            <div class="d-flex justify-content-center gap-3">
+              <button type="submit" class="btn btn-danger btn-lg px-4" style="
+                  min-width: 120px;
+                  border-radius: 8px;
+                  font-weight: 600;
+                  transition: all 0.3s ease;
+              ">
+                <i class="fas fa-trash-alt me-2"></i> Sí, Eliminar
+              </button>
+              <a href="{% url 'cursos' %}" class="btn btn-outline-secondary btn-lg px-4" style="
+                  min-width: 120px;
+                  border-radius: 8px;
+                  font-weight: 600;
+                  transition: all 0.3s ease;
+              ">
+                <i class="fas fa-times me-2"></i> Cancelar
+              </a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Estilos adicionales -->
+<style>
+  .card {
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  
+  .btn-danger:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(220, 53, 69, 0.3);
+  }
+  
+  .btn-outline-secondary:hover {
+    background-color: #f8f9fa;
+  }
+</style>
+{% endblock %}

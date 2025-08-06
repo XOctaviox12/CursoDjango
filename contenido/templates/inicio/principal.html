@@ -1,14 +1,198 @@
 {% extends "inicio/encabezado.html" %}
 
-{% block titulo %} Principal {% endblock %}
+{% block titulo %}Inicio | CursoDjango{% endblock %}
 
 {% block contenido %}
-<div class="container mt-5">
-  <div class="text-center">
-    <h1 class="display-4 fw-bold">¡Bienvenido al mundo de la programación de HOLA MUNDO!</h1>
-    <p class="lead text-muted">
-      Aprende a programar desde cero con nuestros cursos en Python y desarrollo web.
-    </p>
+<!-- Hero Section -->
+<section class="hero-section py-5" style="
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+    color: white;
+    border-radius: 0 0 20px 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-bottom: 3rem;
+">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6">
+        <h1 class="display-3 fw-bold mb-4" style="line-height: 1.2;">
+          ¡Bienvenido al mundo de la programación!
+        </h1>
+        <p class="lead mb-4" style="font-size: 1.25rem; opacity: 0.9;">
+          Domina Python y desarrollo web con nuestros cursos diseñados por expertos.
+        </p>
+        <div class="d-flex gap-3">
+          <a href="{% url 'cursos' %}" class="btn btn-light btn-lg px-4 py-2" style="
+              border-radius: 30px;
+              font-weight: 600;
+              transition: all 0.3s ease;
+          ">
+            <i class="fas fa-book-open me-2"></i>Ver Cursos
+          </a>
+          <a href="{% url 'contacto' %}" class="btn btn-outline-light btn-lg px-4 py-2" style="
+              border-radius: 30px;
+              font-weight: 600;
+              transition: all 0.3s ease;
+          ">
+            <i class="fas fa-envelope me-2"></i>Contacto
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-6 d-none d-lg-block">
+        <img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+             alt="Programación" 
+             class="img-fluid rounded-3 shadow" 
+             style="border: 5px solid rgba(255,255,255,0.2);">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Features Section -->
+<div class="container mb-5">
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="card h-100 border-0 shadow-sm" style="border-radius: 15px;">
+        <div class="card-body p-4 text-center">
+          <div class="icon-wrapper mb-3" style="
+              width: 70px;
+              height: 70px;
+              margin: 0 auto;
+              background: rgba(52, 152, 219, 0.1);
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+          ">
+            <i class="fas fa-laptop-code text-primary" style="font-size: 1.75rem;"></i>
+          </div>
+          <h3 class="h5 fw-bold mb-3">Aprendizaje Práctico</h3>
+          <p class="text-muted">
+            Cursos con ejercicios reales que te preparan para el mercado laboral.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="card h-100 border-0 shadow-sm" style="border-radius: 15px;">
+        <div class="card-body p-4 text-center">
+          <div class="icon-wrapper mb-3" style="
+              width: 70px;
+              height: 70px;
+              margin: 0 auto;
+              background: rgba(52, 152, 219, 0.1);
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+          ">
+            <i class="fas fa-chalkboard-teacher text-primary" style="font-size: 1.75rem;"></i>
+          </div>
+          <h3 class="h5 fw-bold mb-3">Instructores Expertos</h3>
+          <p class="text-muted">
+            Aprende de profesionales con años de experiencia en la industria.
+          </p>
+        </div>
+      </div>
+    </div>
+    
+    <div class="col-md-4">
+      <div class="card h-100 border-0 shadow-sm" style="border-radius: 15px;">
+        <div class="card-body p-4 text-center">
+          <div class="icon-wrapper mb-3" style="
+              width: 70px;
+              height: 70px;
+              margin: 0 auto;
+              background: rgba(52, 152, 219, 0.1);
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+          ">
+            <i class="fas fa-certificate text-primary" style="font-size: 1.75rem;"></i>
+          </div>
+          <h3 class="h5 fw-bold mb-3">Certificación</h3>
+          <p class="text-muted">
+            Obtén certificados reconocidos al completar nuestros cursos.
+          </p>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
+
+<!-- Testimonials Section -->
+<section class="py-5 bg-light">
+  <div class="container">
+    <h2 class="text-center mb-5 fw-bold">Lo que dicen nuestros estudiantes</h2>
+    
+    <div class="row g-4">
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 border-0 shadow-sm" style="border-radius: 15px;">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center mb-3">
+              <img src="https://randomuser.me/api/portraits/women/32.jpg" 
+                   class="rounded-circle me-3" 
+                   width="60" 
+                   height="60" 
+                   alt="Estudiante">
+              <div>
+                <h5 class="mb-0 fw-bold">María González</h5>
+                <small class="text-muted">Estudiante de Python</small>
+              </div>
+            </div>
+            <p class="mb-0">
+              <i class="fas fa-quote-left text-primary me-2"></i>
+              Los cursos me ayudaron a conseguir mi primer trabajo como desarrolladora. ¡Totalmente recomendados!
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 border-0 shadow-sm" style="border-radius: 15px;">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center mb-3">
+              <img src="https://randomuser.me/api/portraits/men/45.jpg" 
+                   class="rounded-circle me-3" 
+                   width="60" 
+                   height="60" 
+                   alt="Estudiante">
+              <div>
+                <h5 class="mb-0 fw-bold">Carlos Martínez</h5>
+                <small class="text-muted">Estudiante de Django</small>
+              </div>
+            </div>
+            <p class="mb-0">
+              <i class="fas fa-quote-left text-primary me-2"></i>
+              La mejor inversión que he hecho en mi carrera. Los proyectos prácticos son increíbles.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="col-md-6 col-lg-4">
+        <div class="card h-100 border-0 shadow-sm" style="border-radius: 15px;">
+          <div class="card-body p-4">
+            <div class="d-flex align-items-center mb-3">
+              <img src="https://randomuser.me/api/portraits/women/68.jpg" 
+                   class="rounded-circle me-3" 
+                   width="60" 
+                   height="60" 
+                   alt="Estudiante">
+              <div>
+                <h5 class="mb-0 fw-bold">Ana Rodríguez</h5>
+                <small class="text-muted">Estudiante de Desarrollo Web</small>
+              </div>
+            </div>
+            <p class="mb-0">
+              <i class="fas fa-quote-left text-primary me-2"></i>
+              Pasé de cero conocimiento a crear mis propias aplicaciones en solo 3 meses. ¡Gracias!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 {% endblock %}

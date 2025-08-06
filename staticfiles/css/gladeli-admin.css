@@ -1,0 +1,224 @@
+/* ===== GLADELI ADMIN THEME ===== */
+:root {
+  --gladeli-primary: #6e48aa;
+  --gladeli-primary-dark: #4a2d7a;
+  --gladeli-primary-light: #9d7bd8;
+  --gladeli-secondary: #00c4cc;
+  --gladeli-accent: #ff7e5f;
+  --gladeli-text: #2d3748;
+  --gladeli-text-light: #4a5568;
+  --gladeli-bg: #f8fafc;
+  --gladeli-card: #ffffff;
+  --gladeli-border: #e2e8f0;
+}
+
+/* Header */
+#header {
+  background: linear-gradient(135deg, var(--gladeli-primary), var(--gladeli-primary-dark)) !important;
+  color: white !important;
+  height: 70px !important;
+  padding: 0 30px !important;
+  display: flex !important;
+  align-items: center !important;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+  border-bottom: none !important;
+}
+
+#branding h1 {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  color: white !important;
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+#branding h1:before {
+  content: "" !important;
+  display: inline-block !important;
+  width: 28px !important;
+  height: 28px !important;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M12 3L1 9l11 6 9-4.91V17h2V9M5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg>') no-repeat center !important;
+  margin-right: 12px !important;
+}
+
+/* Sidebar */
+#nav-sidebar {
+  background-color: var(--gladeli-card) !important;
+  width: 280px !important;
+  padding: 20px 0 !important;
+  border-right: 1px solid var(--gladeli-border) !important;
+}
+
+#nav-sidebar .module {
+  margin-bottom: 25px !important;
+  box-shadow: none !important;
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+#nav-sidebar .module h2 {
+  font-family: 'Inter', sans-serif !important;
+  font-size: 0.9rem !important;
+  text-transform: uppercase !important;
+  letter-spacing: 0.5px !important;
+  color: white !important;
+  padding: 12px 20px !important;
+  margin: 0 0 10px 0 !important;
+  background: linear-gradient(135deg, var(--gladeli-primary), var(--gladeli-primary-dark)) !important;
+  font-weight: 600 !important;
+}
+
+#nav-sidebar a {
+  font-family: 'Inter', sans-serif !important;
+  color: var(--gladeli-text) !important;
+  padding: 12px 20px !important;
+  margin: 0 !important;
+  border-left: 4px solid transparent !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+#nav-sidebar a:hover {
+  background-color: rgba(110, 72, 170, 0.05) !important;
+  color: var(--gladeli-primary) !important;
+  border-left-color: var(--gladeli-primary) !important;
+}
+
+/* Content */
+#content {
+  padding: 30px !important;
+  background-color: var(--gladeli-bg) !important;
+  min-height: calc(100vh - 70px) !important;
+}
+
+/* Cards/Modules */
+.dashboard .module, .module {
+  background: var(--gladeli-card) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
+  margin-bottom: 25px !important;
+  overflow: hidden !important;
+  border: none !important;
+}
+
+/* Tables */
+.change-list table {
+  width: 100% !important;
+  border-collapse: separate !important;
+  border-spacing: 0 !important;
+  background: var(--gladeli-card) !important;
+  border-radius: 12px !important;
+  overflow: hidden !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
+}
+
+.change-list th {
+  background-color: var(--gladeli-primary) !important;
+  color: white !important;
+  font-family: 'Inter', sans-serif !important;
+  font-weight: 600 !important;
+  padding: 15px !important;
+}
+
+.change-list td {
+  font-family: 'Inter', sans-serif !important;
+  padding: 15px !important;
+  border-bottom: 1px solid var(--gladeli-border) !important;
+  vertical-align: middle !important;
+}
+
+.change-list tr:hover td {
+  background-color: rgba(110, 72, 170, 0.03) !important;
+}
+
+/* Forms */
+fieldset {
+  background: var(--gladeli-card) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
+  padding: 20px 25px !important;
+  margin-bottom: 25px !important;
+  border: none !important;
+}
+
+input, select, textarea {
+  font-family: 'Inter', sans-serif !important;
+  border: 1px solid var(--gladeli-border) !important;
+  padding: 12px 15px !important;
+  border-radius: 8px !important;
+  background-color: var(--gladeli-card) !important;
+  transition: all 0.2s ease !important;
+}
+
+input:focus, select:focus, textarea:focus {
+  border-color: var(--gladeli-primary) !important;
+  box-shadow: 0 0 0 3px rgba(110, 72, 170, 0.1) !important;
+  outline: none !important;
+}
+
+/* Buttons */
+input[type="submit"], input[type="button"], button, .submit-row input {
+  font-family: 'Inter', sans-serif !important;
+  background: linear-gradient(135deg, var(--gladeli-primary), var(--gladeli-primary-dark)) !important;
+  border: none !important;
+  color: white !important;
+  padding: 12px 20px !important;
+  border-radius: 8px !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+input[type="submit"]:hover, input[type="button"]:hover, button:hover, .submit-row input:hover {
+  transform: translateY(-2px) !important;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15) !important;
+  opacity: 0.9 !important;
+}
+
+/* Badges */
+.badge {
+  display: inline-block !important;
+  padding: 6px 12px !important;
+  border-radius: 20px !important;
+  font-size: 0.85rem !important;
+  font-weight: 500 !important;
+}
+
+.badge-success {
+  background-color: #48bb78 !important;
+  color: white !important;
+}
+
+.badge-secondary {
+  background-color: #a0aec0 !important;
+  color: white !important;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  #nav-sidebar {
+    width: 240px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  #nav-sidebar {
+    width: 220px !important;
+    transform: translateX(-100%) !important;
+    position: fixed !important;
+    z-index: 1000 !important;
+    height: 100vh !important;
+    box-shadow: 4px 0 15px rgba(0, 0, 0, 0.1) !important;
+  }
+  
+  #content {
+    margin-left: 0 !important;
+    padding: 20px !important;
+  }
+  
+  #header {
+    padding: 0 20px !important;
+  }
+}

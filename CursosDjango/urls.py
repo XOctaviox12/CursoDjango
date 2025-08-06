@@ -16,12 +16,23 @@ Including another URLconf
 """
 
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from contenido import views
+from cursos import views as views_cursos
+from django.conf import settings
 
 urlpatterns = [
+    path('grappelli/', include('grappelli.urls')),
     path('admin/', admin.site.urls),
     path('', views.principal, name="principal"),
     path('contacto/', views.contacto, name="contacto"),
-    path('cursos/', views.cursos, name="cursos"),
+    # path('cursos/', views.cursos, name="cursos"),
+    path('cursos/', views_cursos.cursos, name="cursos"),
+    path('crearCursos/', views_cursos.crear_curso, name="agregar_curso"),
+    path('EditarCurso/<int:id>/', views_cursos.editar_curso, name='Editar'),
+    path('eliminarComentario/<int:id>/', views_cursos.eliminar_curso,name='Eliminar'),
 ]
+if settings.DEBUG:
+    from django.conf.urls.static import static 
+    urlpatterns += static(settings.MEDIA_URL, 
+    document_root=settings.MEDIA_ROOT)

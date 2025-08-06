@@ -1,0 +1,196 @@
+{% extends "inicio/encabezado.html" %}
+
+{% block titulo %}Agregar Nuevo Curso | Sistema Cursos{% endblock %}
+
+{% block texto %}Agregar Curso{% endblock %}
+
+{% block span %}Gestión Académica{% endblock %}
+
+{% block contenido %}
+<!-- Contenido Principal -->
+<div class="container py-5">
+    <!-- Encabezado -->
+    <div class="text-center mb-5">
+        <h1 class="display-5 fw-bold text-primary">Agregar Nuevo Curso</h1>
+        <p class="lead text-muted">Complete todos los campos para registrar un nuevo curso</p>
+        <div class="divider mx-auto" style="
+            width: 80px;
+            height: 4px;
+            background: #3498db;
+            margin: 1rem auto;
+            border-radius: 2px;
+        "></div>
+    </div>
+
+    <!-- Formulario -->
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="card border-0 shadow-lg">
+                <div class="card-body p-4 p-lg-5">
+                    <form method="POST" action="{% url 'agregar_curso' %}" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        {% csrf_token %}
+                        
+                        <!-- Información Básica -->
+                        <div class="mb-4">
+                            <h5 class="mb-3 fw-bold text-primary">
+                                <i class="fas fa-info-circle me-2"></i>Información Básica
+                            </h5>
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label fw-bold">Nombre del Curso</label>
+                                <input type="text" class="form-control form-control-lg" id="nombre" name="nombre" required>
+                                <div class="invalid-feedback">
+                                    Por favor ingrese el nombre del curso
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="descripcion" class="form-label fw-bold">Descripción</label>
+                                <textarea class="form-control" id="descripcion" name="descripcion" rows="4" required></textarea>
+                                <div class="invalid-feedback">
+                                    Por favor ingrese una descripción
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Detalles del Curso -->
+                        <div class="mb-4">
+                            <h5 class="mb-3 fw-bold text-primary">
+                                <i class="fas fa-clock me-2"></i>Detalles del Curso
+                            </h5>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="duracion" class="form-label fw-bold">Duración (horas)</label>
+                                    <input type="number" class="form-control" id="duracion" name="duracion" min="1" required>
+                                    <div class="invalid-feedback">
+                                        Ingrese una duración válida
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="precio" class="form-label fw-bold">Precio ($)</label>
+                                    <input type="number" step="0.01" class="form-control" id="precio" name="precio" min="0" required>
+                                    <div class="invalid-feedback">
+                                        Ingrese un precio válido
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Configuración -->
+                        <div class="mb-4">
+                            <h5 class="mb-3 fw-bold text-primary">
+                                <i class="fas fa-cog me-2"></i>Configuración
+                            </h5>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label for="nivel" class="form-label fw-bold">Nivel</label>
+                                    <select class="form-select" id="nivel" name="nivel" required>
+                                        <option value="" selected disabled>Seleccione nivel</option>
+                                        <option value="B">Básico</option>
+                                        <option value="I">Intermedio</option>
+                                        <option value="A">Avanzado</option>
+                                    </select>
+                                    <div class="invalid-feedback">
+                                        Seleccione un nivel
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="imagen" class="form-label fw-bold">Imagen del Curso</label>
+                                    <input class="form-control" type="file" id="imagen" name="imagen" accept="image/*" required>
+                                    <div class="invalid-feedback">
+                                        Seleccione una imagen
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Disponibilidad -->
+                        <div class="mb-4">
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="disponible" name="disponible" checked>
+                                <label class="form-check-label fw-bold" for="disponible">Curso disponible</label>
+                            </div>
+                        </div>
+
+                        <!-- Botones de Acción -->
+                        <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                            <a href="{% url 'cursos' %}" class="btn btn-outline-secondary me-md-2 px-4">
+                                <i class="fas fa-times me-2"></i>Cancelar
+                            </a>
+                            <button type="submit" class="btn btn-primary px-4">
+                                <i class="fas fa-save me-2"></i>Guardar Curso
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Validación de formulario -->
+<script>
+// Validación del formulario
+(function() {
+  'use strict';
+  
+  // Seleccionar todos los formularios que necesitan validación
+  const forms = document.querySelectorAll('.needs-validation');
+  
+  // Iterar sobre ellos y prevenir el envío si no son válidos
+  Array.prototype.slice.call(forms).forEach(function(form) {
+    form.addEventListener('submit', function(event) {
+      if (!form.checkValidity()) {
+        event.preventDefault();
+        event.stopPropagation();
+      }
+      
+      form.classList.add('was-validated');
+    }, false);
+  });
+})();
+</script>
+
+<!-- Estilos Adicionales -->
+<style>
+    .card {
+        border-radius: 12px;
+        overflow: hidden;
+    }
+    
+    .form-control, .form-select {
+        border-radius: 8px;
+        padding: 0.75rem 1rem;
+        border: 1px solid #ced4da;
+    }
+    
+    .form-control-lg {
+        font-size: 1.1rem;
+    }
+    
+    .btn {
+        border-radius: 8px;
+        padding: 0.6rem 1.5rem;
+        font-weight: 600;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-primary {
+        background: linear-gradient(135deg, #3498db 0%, #2c3e50 100%);
+        border: none;
+    }
+    
+    .btn-primary:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 12px rgba(13, 110, 253, 0.3);
+    }
+    
+    .form-check-input:checked {
+        background-color: #3498db;
+        border-color: #3498db;
+    }
+    
+    .invalid-feedback {
+        font-size: 0.85rem;
+    }
+</style>
+{% endblock %}

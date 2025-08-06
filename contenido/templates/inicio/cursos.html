@@ -3,33 +3,22 @@
 {% block titulo %} Cursos {% endblock %}
 
 {% block contenido %}
-<div class="container my-5">
-  <div class="text-center mb-4">
-    <h2 class="fw-bold">Cursos Disponibles</h2>
-    <p class="text-muted">Explora nuestras opciones y empieza a aprender hoy mismo.</p>
-  </div>
+{%for curso in Cursos%}
+<h1>Lista de Cursos</h1>
 
-  <div class="row justify-content-center">
-    <div class="col-md-8">
-      <ul class="list-group list-group-flush shadow-sm rounded">
-        <li class="list-group-item py-3">
-          <i class="bi bi-code-slash me-2 text-primary"></i>
-          <strong>JavaScript Moderno</strong> – Aprende las últimas técnicas del lenguaje web más popular.
-        </li>
-        <li class="list-group-item py-3">
-          <i class="bi bi-layout-text-sidebar-reverse me-2 text-success"></i>
-          <strong>Desarrollo con React</strong> – Construye interfaces modernas y reactivas.
-        </li>
-        <li class="list-group-item py-3">
-          <i class="bi bi-bar-chart-line me-2 text-warning"></i>
-          <strong>Python para Ciencia de Datos</strong> – Domina el análisis de datos con Python.
-        </li>
-        <li class="list-group-item py-3">
-          <i class="bi bi-phone me-2 text-info"></i>
-          <strong>Desarrollo de Apps con Flutter</strong> – Crea apps móviles multiplataforma.
-        </li>
-      </ul>
+  {% for curso in cursos %}
+    <div class="curso">
+      <h2>{{ curso.nombre }}</h2>
+      <p><strong>Descripción:</strong> {{ curso.descripcion }}</p>
+      <p><strong>Duración:</strong> {{ curso.duracion_horas }} horas</p>
+      <p><strong>Nivel:</strong> {{ curso.nivel }}</p>
+      <p><strong>Costo:</strong> ${{ curso.costo }}</p>
+      <p><strong>Cupo máximo:</strong> {{ curso.cupo_maximo }}</p>
+      <p><strong>Fecha de creación:</strong> {{ curso.fecha_creacion }}</p>
+      {% if curso.imagen %}
+        <img src="{{ curso.imagen.url }}" alt="Imagen del curso">
+      {% endif %}
     </div>
-  </div>
-</div>
+  {% endfor %}
+{% endfor %}
 {% endblock %}

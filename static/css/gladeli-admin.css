@@ -1,0 +1,142 @@
+:root {
+  --color-primary: #6c63ff !important;
+  --color-primary-dark: #5146c7 !important;
+  --color-bg: #ffffff !important;
+  --color-card: #ffffff !important;
+  --color-text: #111111 !important;
+  --color-border: #dddddd !important;
+  --color-shadow: rgba(0, 0, 0, 0.05) !important;
+  --radius: 8px !important;
+  --transition: all 0.3s ease !important;
+}
+
+body {
+  background-color: var(--color-bg) !important;
+  color: var(--color-text) !important;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 1.6 !important;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: 700 !important;
+  color: var(--color-text) !important;
+  margin-bottom: 12px !important;
+}
+
+a {
+  color: var(--color-primary-dark) !important;
+  text-decoration: none !important;
+}
+
+a:hover {
+  color: var(--color-primary) !important;
+  text-decoration: underline !important;
+}
+
+.card {
+  background-color: var(--color-card) !important;
+  padding: 24px !important;
+  border-radius: var(--radius) !important;
+  box-shadow: 0 4px 10px var(--color-shadow) !important;
+  border: 1px solid var(--color-border) !important;
+}
+
+input,
+select,
+textarea {
+  width: 100% !important;
+  padding: 10px 12px !important;
+  border-radius: var(--radius) !important;
+  border: 1px solid var(--color-border) !important;
+  background-color: var(--color-card) !important;
+  font-size: 1rem !important;
+  color: var(--color-text) !important;
+  transition: var(--transition) !important;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+  border-color: var(--color-primary) !important;
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(108, 99, 255, 0.15) !important;
+}
+
+button,
+input[type="submit"],
+.button {
+  background-color: var(--color-primary) !important;
+  color: white !important;
+  border: none !important;
+  padding: 10px 20px !important;
+  border-radius: var(--radius) !important;
+  cursor: pointer !important;
+  font-weight: 500 !important;
+  transition: var(--transition) !important;
+}
+
+button:hover,
+input[type="submit"]:hover {
+  background-color: var(--color-primary-dark) !important;
+}
+
+table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  background-color: var(--color-card) !important;
+  border: 1px solid var(--color-border) !important;
+  box-shadow: 0 2px 8px var(--color-shadow) !important;
+}
+
+th, td {
+  padding: 12px 16px !important;
+  text-align: left !important;
+  font-size: 0.95rem !important;
+  border-bottom: 1px solid var(--color-border) !important;
+  color: var(--color-text) !important;
+}
+
+th {
+  background-color: #f5f5f5 !important;
+  font-weight: 600 !important;
+}
+
+tr:hover td {
+  background-color: #fafafa !important;
+}
+
+/* Scroll personalizado */
+::-webkit-scrollbar {
+  width: 8px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1 !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary) !important;
+  border-radius: var(--radius) !important;
+}
+
+/* Badge */
+.badge {
+  background-color: var(--color-primary) !important;
+  color: white !important;
+  font-size: 0.8rem !important;
+  font-weight: 600 !important;
+  padding: 5px 10px !important;
+  border-radius: 999px !important;
+  display: inline-block !important;
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-in-out both !important;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
